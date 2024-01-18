@@ -41,7 +41,7 @@ var tasks = map[string]Task{
 	},
 }
 
-// Ниже напишите обработчики для каждого эндпоинта
+// Обработчики для каждого эндпоинта
 func getAllTasks(w http.ResponseWriter, r *http.Request) {
 	resp, err := json.Marshal(tasks)
 	if err != nil {
@@ -117,7 +117,7 @@ func delTask(w http.ResponseWriter, r *http.Request) {
 func main() {
 	r := chi.NewRouter()
 
-	// здесь регистрируйте ваши обработчики
+	// Регистрация обработчиков
 	r.Get("/tasks", getAllTasks)
 	r.Post("/tasks", postTask)
 	r.Get("/tasks/{id}", getTask)
